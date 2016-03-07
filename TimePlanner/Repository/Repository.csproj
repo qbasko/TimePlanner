@@ -148,6 +148,9 @@
     <EmbeddedResource Include="Migrations\201603032135232_UpdateUser.resx">
       <DependentUpon>201603032135232_UpdateUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603072101105_UpdateUserTable.resx">
+      <DependentUpon>201603072101105_UpdateUserTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Location.pl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Location.pl.Designer.cs</LastGenOutput>
@@ -181,6 +184,10 @@
     <Compile Include="Migrations\201603032135232_UpdateUser.cs" />
     <Compile Include="Migrations\201603032135232_UpdateUser.Designer.cs">
       <DependentUpon>201603032135232_UpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603072101105_UpdateUserTable.cs" />
+    <Compile Include="Migrations\201603072101105_UpdateUserTable.Designer.cs">
+      <DependentUpon>201603072101105_UpdateUserTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Event.cs" />

@@ -4,7 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Repository.Models
 {
-    public class TimePlannerContext : IdentityDbContext<User>
+    public class TimePlannerContext : IdentityDbContext
     {
         public TimePlannerContext()
             : base("DefaultConnection")
@@ -14,6 +14,7 @@ namespace Repository.Models
         public DbSet<Event> Events { get; set; }
         public DbSet<EventType> EventTypes { get; set; }
         public DbSet<Location> Locations { get; set; }
+        public DbSet<User> ApplicationUsers { get; set; }
 
         public static TimePlannerContext Create()
         {
@@ -25,7 +26,11 @@ namespace Repository.Models
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingEntitySetNameConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            modelBuilder.Entity<Event>().HasRequired(e=>e.User).WithMany(u=>u.Events).HasForeignKey(e=>e.UserId).WillCascadeOnDelete(true);
+            modelBuilder.Entity<Event>()
+                .HasRequired(e => e.User)
+                .WithMany(u => u.Events)
+                .HasForeignKey(e => e.UserId)
+                .WillCascadeOnDelete(true);
         }
     }
 }
