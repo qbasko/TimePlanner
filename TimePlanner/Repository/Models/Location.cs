@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Repository.Models
 {
     public class Location
     {
-        [Required]
         public string Id { get; set; }
 
         [Display(ResourceType = typeof(Resources.Location), Name = "Name")]
@@ -37,5 +37,11 @@ namespace Repository.Models
         [MaxLength(16)]
         public string Longtitude { get; set; }
 
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy hh-mm}", ApplyFormatInEditMode = true)]
+        public DateTime CreationDate { get; set; }
+
+        public string AuthorId { get; set; }
+        public virtual User Author { get; set; }
     }
 }

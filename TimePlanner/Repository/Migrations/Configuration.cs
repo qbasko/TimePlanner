@@ -12,6 +12,7 @@ namespace Repository.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+           // AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(Repository.Models.TimePlannerContext context)
@@ -29,32 +30,33 @@ namespace Repository.Migrations
             context.EventTypes.AddOrUpdate(new EventType()
             {
                 Id = "1",
-                Name = "Meeting"
+                Name = "Meeting",
+                CreationDate = DateTime.Now
             });
 
-            context.EventTypes.AddOrUpdate(new EventType()
-            {
-                Id = "2",
-                Name = "Party"
-            });
+            //context.EventTypes.AddOrUpdate(new EventType()
+            //{
+            //    Id = "2",
+            //    Name = "Party"
+            //});
 
-            context.EventTypes.AddOrUpdate(new EventType()
-            {
-                Id = "3",
-                Name = "Beer"
-            });
+            //context.EventTypes.AddOrUpdate(new EventType()
+            //{
+            //    Id = "3",
+            //    Name = "Beer"
+            //});
 
-            context.EventTypes.AddOrUpdate(new EventType()
-            {
-                Id = "4",
-                Name = "Lunch"
-            });
+            //context.EventTypes.AddOrUpdate(new EventType()
+            //{
+            //    Id = "4",
+            //    Name = "Lunch"
+            //});
 
-            context.EventTypes.AddOrUpdate(new EventType()
-            {
-                Id = "5",
-                Name = "Sighseeing"
-            });
+            //context.EventTypes.AddOrUpdate(new EventType()
+            //{
+            //    Id = "5",
+            //    Name = "Sighseeing"
+            //});
         }
     }
 }

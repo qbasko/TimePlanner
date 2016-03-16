@@ -5,7 +5,6 @@ namespace Repository.Models
 {
     public class Event
     {
-        [Required]
         public string Id { get; set; }
 
         [Display(ResourceType = typeof(Resources.Event), Name="Name")]
@@ -29,16 +28,14 @@ namespace Repository.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy hh-mm}", ApplyFormatInEditMode = true)]
         public DateTime EndDateTime { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Event), Name = "Location")]
         public string LocationId { get; set; }
 
-        [Display(ResourceType = typeof(Resources.Event), Name = "Location")]
-        [Required]
         public virtual Location Location { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Event), Name = "Type")]
         public string TypeId{ get; set; }
 
-        [Display(ResourceType = typeof(Resources.Event), Name = "Type")]
-        [Required]
         public virtual EventType Type { get; set; }
 
         [Display(ResourceType = typeof(Resources.Event), Name = "Objective")]
@@ -47,9 +44,12 @@ namespace Repository.Models
 
         [Display(ResourceType = typeof(Resources.Event), Name = "NumberOfAttendees")]
         public int? NumberOfAttendees { get; set; }
-
+        
         public string UserId { get; set; }
 
         public virtual User User { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime CreationDate { get; set; }
     }
 }
