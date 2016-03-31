@@ -2,6 +2,7 @@ using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using Repository.IRepo;
+using Repository.Models;
 using Repository.Repo;
 using TimePlanner.Controllers;
 
@@ -43,8 +44,9 @@ namespace TimePlanner.App_Start
 
             container.RegisterType<AccountController>(new InjectionConstructor());
             container.RegisterType<ManageController>(new InjectionConstructor());
+            container.RegisterType<ITimePlannerContext, TimePlannerContext>(new PerRequestLifetimeManager());
             container.RegisterType<ILocationRepo, LocationRepo>(new PerRequestLifetimeManager());
-
+            container.RegisterType<IEventRepo, EventRepo>(new PerRequestLifetimeManager());
         }
     }
 }

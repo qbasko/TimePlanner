@@ -1,10 +1,14 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Runtime.CompilerServices;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Repository.IRepo;
 
 namespace Repository.Models
 {
-    public class TimePlannerContext : IdentityDbContext
+    public class TimePlannerContext : IdentityDbContext, ITimePlannerContext
     {
         public TimePlannerContext()
             : base("DefaultConnection")
@@ -15,6 +19,8 @@ namespace Repository.Models
         public DbSet<EventType> EventTypes { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<User> ApplicationUsers { get; set; }
+
+        public Database Db => Database;
 
         public static TimePlannerContext Create()
         {

@@ -182,6 +182,7 @@
   <ItemGroup>
     <Compile Include="IRepo\IEventRepo.cs" />
     <Compile Include="IRepo\ILocationRepo.cs" />
+    <Compile Include="IRepo\ITimePlannerContext.cs" />
     <Compile Include="Migrations\201603032109050_firstMigration.cs" />
     <Compile Include="Migrations\201603032109050_firstMigration.Designer.cs">
       <DependentUpon>201603032109050_firstMigration.cs</DependentUpon>

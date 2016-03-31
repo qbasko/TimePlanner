@@ -7,8 +7,11 @@ using Repository.Models;
 
 namespace Repository.IRepo
 {
-    interface IEventRepo
+    public interface IEventRepo
     {
-        IQueryable<Event> GetEvents(); 
+        IEnumerable<Event> GetEvents();
+        Event GetEventById(string id);
+        bool Delete(string id);
+        void SaveChanges();
     }
 }

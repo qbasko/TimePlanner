@@ -2,10 +2,23 @@
 
 @{
     ViewBag.Title = "Edit";
+    ViewBag.Description = "Edit location";
+    ViewBag.Keywords = "Edit, location";
 }
 
 <h2>Edit</h2>
-
+@if (ViewBag.Error == true)
+{
+    <div class="alert alert-danger" role="alert">
+        An error occured. Try again.
+    </div>
+}
+else if (ViewBag.Error == false)
+{
+    <div class="alert alert-success" role="alert">
+        Updated successfully.
+    </div>
+}
 
 @using (Html.BeginForm())
 {
@@ -66,23 +79,26 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Longtitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Longtitude, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Longtitude, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Longtitude, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Longtitude, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Longtitude, "", new {@class = "text-danger"})
             </div>
         </div>
 
+            @Html.HiddenFor(m => m.CreationDate)
+            @Html.HiddenFor(m => m.AuthorId)
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", null, new {@class="btn btn-warning"})
 </div>
 
 @section Scripts {

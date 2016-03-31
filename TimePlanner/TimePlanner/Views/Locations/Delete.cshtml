@@ -2,14 +2,23 @@
 
 @{
     ViewBag.Title = "Delete";
+    ViewBag.Description = "Location details:" + Model.Name;
+    ViewBag.Keywords = "Location " + Model.Name + ", details";
 }
 
 <h2>Delete</h2>
 
+@if (ViewBag.Error == true)
+{
+    <div class="alert alert-danger" role="alert">
+        An error occured during deletion. Try again.
+    </div>
+}
+
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Location</h4>
-    <hr />
+    <hr/>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -69,12 +78,21 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-danger confirmation"/> |
+            @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-warning"})
         </div>
     }
 </div>
+
+@section Scripts{
+    <script type="text/javascript">
+$('.confirmation').on('click', function () {
+    return confirm('Are you sure you want to delete?');
+});
+    </script>
+}
