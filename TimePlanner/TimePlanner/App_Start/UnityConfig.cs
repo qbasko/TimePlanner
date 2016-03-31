@@ -47,6 +47,7 @@ namespace TimePlanner.App_Start
             container.RegisterType<ITimePlannerContext, TimePlannerContext>(new PerRequestLifetimeManager());
             container.RegisterType<ILocationRepo, LocationRepo>(new PerRequestLifetimeManager());
             container.RegisterType<IEventRepo, EventRepo>(new PerRequestLifetimeManager());
+            container.RegisterType<IEventTypeRepo, EventTypeRepo>(new PerRequestLifetimeManager());
         }
     }
 }

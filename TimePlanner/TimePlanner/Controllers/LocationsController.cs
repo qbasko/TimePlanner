@@ -150,6 +150,7 @@ namespace TimePlanner.Controllers
             try
             {
                 _repository.Delete(id);
+                _repository.SaveChanges();
             }
             catch (Exception ex)
             {

@@ -181,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRepo\IEventRepo.cs" />
+    <Compile Include="IRepo\IEventTypeRepo.cs" />
     <Compile Include="IRepo\ILocationRepo.cs" />
     <Compile Include="IRepo\ITimePlannerContext.cs" />
     <Compile Include="Migrations\201603032109050_firstMigration.cs" />
@@ -208,6 +209,7 @@
     <Compile Include="Models\Views\AccountViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\EventRepo.cs" />
+    <Compile Include="Repo\EventTypeRepo.cs" />
     <Compile Include="Repo\LocationRepo.cs" />
     <Compile Include="Resources\Event.Designer.cs">
       <DependentUpon>Event.resx</DependentUpon>
