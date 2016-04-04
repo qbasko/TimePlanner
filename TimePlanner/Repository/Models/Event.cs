@@ -16,17 +16,29 @@ namespace Repository.Models
         [MaxLength(500)]
         public string Description { get; set; }
 
-        [Display(ResourceType = typeof(Resources.Event), Name = "StartDateTime")]
+        [Display(ResourceType = typeof(Resources.Event), Name = "StartDate")]
         [Required]
-        [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy hh-mm}", ApplyFormatInEditMode = true)]
-        public DateTime StartDateTime { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime StartDate { get; set; }
 
-        [Display(ResourceType = typeof(Resources.Event), Name = "EndDateTime")]
+        [Display(ResourceType = typeof(Resources.Event), Name = "StartTime")]
         [Required]
-        [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy hh-mm}", ApplyFormatInEditMode = true)]
-        public DateTime EndDateTime { get; set; }
+        [DataType(DataType.Time)] //"{0:hh:mm:ss}"
+        [DisplayFormat(DataFormatString = "{0:hh:mm:ss}", ApplyFormatInEditMode = true)]
+        public DateTime StartTime { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Event), Name = "EndDate")]
+        [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime EndDate { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Event), Name = "EndTime")]
+        [Required]
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = "{0:hh:mm:ss}", ApplyFormatInEditMode = true)]
+        public DateTime EndTime { get; set; }
 
         [Display(ResourceType = typeof(Resources.Event), Name = "Location")]
         public string LocationId { get; set; }

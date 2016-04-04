@@ -26,10 +26,16 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StartDateTime)
+            @Html.DisplayNameFor(model => model.StartDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EndDateTime)
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Objective)
@@ -56,10 +62,16 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StartDateTime)
+                @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EndDateTime)
+                @Html.DisplayFor(modelItem => item.StartTime.TimeOfDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime.TimeOfDay)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Objective)
@@ -76,3 +88,4 @@
     }
 
 </table>
+

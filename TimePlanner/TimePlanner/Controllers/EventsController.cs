@@ -64,7 +64,7 @@ namespace TimePlanner.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name,Description,StartDateTime,EndDateTime,LocationId,TypeId,Objective,NumberOfAttendees")] Event @event)
+        public ActionResult Create([Bind(Include = "Name,Description,StartDate,StartTime,EndDate,EndTime,LocationId,TypeId,Objective,NumberOfAttendees")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -113,7 +113,7 @@ namespace TimePlanner.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CreationDate,Name,Description,StartDateTime,EndDateTime,LocationId,TypeId,Objective,NumberOfAttendees,UserId")] Event @event)
+        public ActionResult Edit([Bind(Include = "Id,CreationDate,Name,Description,StartDate,StartTime,EndDate,EndTime,LocationId,TypeId,Objective,NumberOfAttendees,UserId")] Event @event)
         {
             if (ModelState.IsValid)
             {

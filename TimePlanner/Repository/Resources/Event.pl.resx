@@ -120,8 +120,14 @@
   <data name="Description" xml:space="preserve">
     <value>Opis</value>
   </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Data zakończenia</value>
+  </data>
   <data name="EndDateTime" xml:space="preserve">
     <value>Data i czas zakończenia</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>Czas zakończenia</value>
   </data>
   <data name="Location" xml:space="preserve">
     <value>Lokalizacja</value>
@@ -135,8 +141,14 @@
   <data name="Objective" xml:space="preserve">
     <value>Cel</value>
   </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Data rozpoczęcia</value>
+  </data>
   <data name="StartDateTime" xml:space="preserve">
     <value>Data i czas rozpoczęcia</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Czas rozpoczęcia</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Typ</value>
