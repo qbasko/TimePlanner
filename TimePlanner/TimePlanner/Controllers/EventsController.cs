@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -14,6 +15,7 @@ using Repository.Models;
 
 namespace TimePlanner.Controllers
 {
+    [RouteArea("Admin")]
     public class EventsController : Controller
     {
         private readonly IEventRepo _eventRepository;
@@ -28,12 +30,14 @@ namespace TimePlanner.Controllers
         }
 
         // GET: Events
+        [Route("{Events}")]
         public ActionResult Index()
         {
             var events = _eventRepository.GetEvents();
             return View(events);
         }
 
+        [Route("{Events}/{id}")]
         // GET: Events/Details/5
         public ActionResult Details(string id)
         {
@@ -55,7 +59,7 @@ namespace TimePlanner.Controllers
         {
             ViewBag.LocationId = new SelectList(_locationRepository.GetLocations().OrderBy(l => l.Name), "Id", "Name");
             ViewBag.TypeId = new SelectList(_eventTypeRepository.GetEventTypes().OrderBy(et => et.Name), "Id", "Name");
-            return View();
+            return View("Create");
         }
 
         // POST: Events/Create
@@ -113,7 +117,7 @@ namespace TimePlanner.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CreationDate,Name,Description,StartDate,StartTime,EndDate,EndTime,LocationId,TypeId,Objective,NumberOfAttendees,UserId")] Event @event)
+        public ActionResult Edit(Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -174,6 +178,11 @@ namespace TimePlanner.Controllers
         {
             var events = _eventRepository.GetEvents();
             return PartialView("Index", events);
+        }
+
+        public ActionResult EmptyResult()
+        {
+            return new EmptyResult();
         }
     }
 }
