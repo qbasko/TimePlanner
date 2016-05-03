@@ -59,11 +59,12 @@ namespace TimePlanner
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "653760703513-2jk7jgfsg3298j0o92c8fl6v6e4k1tl2.apps.googleusercontent.com",
+                ClientSecret = "KcWJKPn5xwXxhnCMHUfry_yB"
+            });
+
         }
     }
 }
