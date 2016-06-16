@@ -1,10 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Repository.Models
 {
     public class Event
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
 
         [Display(ResourceType = typeof(Resources.Event), Name="Name")]
@@ -61,6 +63,7 @@ namespace Repository.Models
 
         public virtual User User { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [DataType(DataType.DateTime)]
         public DateTime CreationDate { get; set; }
     }

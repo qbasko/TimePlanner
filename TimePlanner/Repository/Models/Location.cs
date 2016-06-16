@@ -1,10 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Repository.Models
 {
     public class Location
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Id { get; set; }
 
         [Display(ResourceType = typeof(Resources.Location), Name = "Name")]
@@ -37,6 +39,7 @@ namespace Repository.Models
         [MaxLength(16)]
         public string Longtitude { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy hh-mm}", ApplyFormatInEditMode = true)]
         public DateTime CreationDate { get; set; }

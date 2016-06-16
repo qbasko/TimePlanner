@@ -1,0 +1,7 @@
+logs/*
+packages/*
+!.gitkeep
+.vs/*
+**/[Bb]in/
+**/[Oo]bj/
+**/*.csproj.user
