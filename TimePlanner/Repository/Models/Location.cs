@@ -6,7 +6,8 @@ namespace Repository.Models
 {
     public class Location
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Id { get; set; }
 
         [Display(ResourceType = typeof(Resources.Location), Name = "Name")]

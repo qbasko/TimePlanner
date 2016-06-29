@@ -157,6 +157,12 @@
     <EmbeddedResource Include="Migrations\201603312134018_AddedStartEndTime.resx">
       <DependentUpon>201603312134018_AddedStartEndTime.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606291350596_update.resx">
+      <DependentUpon>201606291350596_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606291420059_update2.resx">
+      <DependentUpon>201606291420059_update2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Location.pl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Location.pl.Designer.cs</LastGenOutput>
@@ -207,6 +213,14 @@
     <Compile Include="Migrations\201603312134018_AddedStartEndTime.cs" />
     <Compile Include="Migrations\201603312134018_AddedStartEndTime.Designer.cs">
       <DependentUpon>201603312134018_AddedStartEndTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606291350596_update.cs" />
+    <Compile Include="Migrations\201606291350596_update.Designer.cs">
+      <DependentUpon>201606291350596_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606291420059_update2.cs" />
+    <Compile Include="Migrations\201606291420059_update2.Designer.cs">
+      <DependentUpon>201606291420059_update2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Event.cs" />

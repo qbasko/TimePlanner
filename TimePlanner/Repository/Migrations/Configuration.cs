@@ -27,12 +27,12 @@ namespace Repository.Migrations
 
         private static void PopulateEventTypes(TimePlannerContext context)
         {
-            context.EventTypes.AddOrUpdate(new EventType()
-            {
-                Id = "1",
-                Name = "Meeting",
-                CreationDate = DateTime.Now
-            });
+            //context.EventTypes.AddOrUpdate(new EventType()
+            //{
+            //    Id = "1",
+            //    Name = "Meeting",
+            //    CreationDate = DateTime.Now
+            //});
 
             //context.EventTypes.AddOrUpdate(new EventType()
             //{

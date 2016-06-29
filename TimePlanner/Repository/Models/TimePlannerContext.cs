@@ -11,7 +11,7 @@ namespace Repository.Models
     public class TimePlannerContext : IdentityDbContext, ITimePlannerContext
     {
         public TimePlannerContext()
-            : base("DefaultConnection")
+            : base("TimePlannerContext")
         {
         }
 
