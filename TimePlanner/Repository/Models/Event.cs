@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -60,12 +61,19 @@ namespace Repository.Models
         [Display(ResourceType = typeof(Resources.Event), Name = "NumberOfAttendees")]
         public int? NumberOfAttendees { get; set; }
         
-        public string UserId { get; set; }
+        public string AuthorId { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User Author { get; set; }
+
+        public virtual ICollection<User> Attendees{ get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [DataType(DataType.DateTime)]
         public DateTime CreationDate { get; set; }
+
+        public Event()
+        {
+            Attendees = new List<User>();
+        }
     }
 }

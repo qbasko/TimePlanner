@@ -163,6 +163,9 @@
     <EmbeddedResource Include="Migrations\201606291420059_update2.resx">
       <DependentUpon>201606291420059_update2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606301405138_updatedEventAtendees.resx">
+      <DependentUpon>201606301405138_updatedEventAtendees.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Location.pl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Location.pl.Designer.cs</LastGenOutput>
@@ -222,6 +225,10 @@
     <Compile Include="Migrations\201606291420059_update2.Designer.cs">
       <DependentUpon>201606291420059_update2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606301405138_updatedEventAtendees.cs" />
+    <Compile Include="Migrations\201606301405138_updatedEventAtendees.Designer.cs">
+      <DependentUpon>201606301405138_updatedEventAtendees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventType.cs" />
@@ -264,6 +271,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>User.pl.resx</DependentUpon>
     </Compile>
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Event.pl.resx">

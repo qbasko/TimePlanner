@@ -1,10 +1,12 @@
 ﻿@model Repository.Models.Event
 
+
 @{
     ViewBag.Title = "Details";
     ViewBag.Opis = "Event details:" + Model.Name;
     ViewBag.Keywords = "Event " + Model.Name + ", details";
 }
+
 
 <h2>Details</h2>
 
@@ -29,11 +31,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.User.Email)
+            @Html.DisplayNameFor(model => model.Author.Email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.User.Email)
+            @Html.DisplayFor(model => model.Author.Email)
         </dd>
 
         <dt>
@@ -101,6 +103,17 @@
         </dd>
 
     </dl>
+    @Html.ActionLink("Going", "AssignToEvent", new { id = Model.Id }, new { @class = "btn btn-success" }) | @Html.ActionLink("Not Going", "CancelAssignment", new { id = Model.Id }, new { @class = "btn btn-warning" })
+</div>
+<br /><br />
+<div>
+    <h4>Assigned attendees</h4>
+
+    @foreach (var item in Model.Attendees)
+    {
+        <tr>item.Email</tr>
+    }
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |

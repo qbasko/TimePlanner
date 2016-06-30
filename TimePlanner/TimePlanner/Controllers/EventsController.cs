@@ -21,12 +21,14 @@ namespace TimePlanner.Controllers
         private readonly IEventRepo _eventRepository;
         private readonly ILocationRepo _locationRepository;
         private readonly IEventTypeRepo _eventTypeRepository;
+        private readonly IUserRepo _userRepo;
 
-        public EventsController(IEventRepo eventRepository, ILocationRepo locationRepository, IEventTypeRepo eventTypeRepository)
+        public EventsController(IEventRepo eventRepository, ILocationRepo locationRepository, IEventTypeRepo eventTypeRepository, IUserRepo userRepo)
         {
             _eventRepository = eventRepository;
             _locationRepository = locationRepository;
             _eventTypeRepository = eventTypeRepository;
+            _userRepo = userRepo;
         }
 
         // GET: Events
@@ -74,7 +76,7 @@ namespace TimePlanner.Controllers
             {
                 @event.Id = Guid.NewGuid().ToString();
                 @event.CreationDate = DateTime.Now.ToUniversalTime();
-                @event.UserId = User.Identity.GetUserId();
+                @event.AuthorId = User.Identity.GetUserId();
 
                 try
                 {
@@ -169,7 +171,7 @@ namespace TimePlanner.Controllers
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Delete", new {id = id, error = true});
+                return RedirectToAction("Delete", new { id = id, error = true });
             }
             return RedirectToAction("Index");
         }
@@ -183,6 +185,41 @@ namespace TimePlanner.Controllers
         public ActionResult EmptyResult()
         {
             return new EmptyResult();
+        }
+
+        public ActionResult AssignToEvent(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Event @event = _eventRepository.GetEventById(id);
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
+
+            var user = _userRepo.GetUserById(User.Identity.GetUserId());
+            @event.Attendees.Add(user);
+            return View("Details", @event);
+        }
+
+        public ActionResult CancelAssignment(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Event @event = _eventRepository.GetEventById(id);
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
+            var user = _userRepo.GetUserById(User.Identity.GetUserId());
+            var participant = @event.Attendees.SingleOrDefault(a => a.Id == User.Identity.GetUserId());
+            if (participant != null)
+                @event.Attendees.Remove(participant);
+            return View("Details", @event);
         }
     }
 }

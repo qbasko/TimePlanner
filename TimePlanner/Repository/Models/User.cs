@@ -21,12 +21,7 @@ namespace Repository.Models
 
         public int? Age { get; set; }
 
-        public virtual ICollection<Event> Events { get; private set; }
-
-        public User()
-        {
-            Events = new HashSet<Event>();
-        }
+        public virtual List<Event> Events{ get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

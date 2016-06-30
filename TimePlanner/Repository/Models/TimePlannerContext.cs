@@ -33,9 +33,9 @@ namespace Repository.Models
             modelBuilder.Conventions.Remove<PluralizingEntitySetNameConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Entity<Event>()
-                .HasRequired(e => e.User)
+                .HasRequired(e => e.Author)
                 .WithMany(u => u.Events)
-                .HasForeignKey(e => e.UserId)
+                .HasForeignKey(e => e.AuthorId)
                 .WillCascadeOnDelete(true);
         }
     }
