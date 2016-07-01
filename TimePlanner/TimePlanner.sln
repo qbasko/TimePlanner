@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimePlanner", "TimePlanner\TimePlanner.csproj", "{82B6132D-B82A-4706-AA11-A3F50641B64E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimePlanner.Tests", "TimePlanner.Tests\TimePlanner.Tests.csproj", "{BD28BFA4-33F8-44E3-8E6A-1BAD728A079E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{0FD7308C-333F-4CF2-A1ED-971270FFEED4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{675F3A88-E0EA-4122-8F74-267AF136B24D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{0FD7308C-333F-4CF2-A1ED-971270FFEED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FD7308C-333F-4CF2-A1ED-971270FFEED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FD7308C-333F-4CF2-A1ED-971270FFEED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{675F3A88-E0EA-4122-8F74-267AF136B24D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675F3A88-E0EA-4122-8F74-267AF136B24D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675F3A88-E0EA-4122-8F74-267AF136B24D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675F3A88-E0EA-4122-8F74-267AF136B24D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

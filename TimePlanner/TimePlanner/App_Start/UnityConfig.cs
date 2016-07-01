@@ -5,6 +5,8 @@ using Repository.IRepo;
 using Repository.Models;
 using Repository.Repo;
 using TimePlanner.Controllers;
+using Services;
+using Repository;
 
 namespace TimePlanner.App_Start
 {
@@ -49,6 +51,8 @@ namespace TimePlanner.App_Start
             container.RegisterType<IEventRepo, EventRepo>(new PerRequestLifetimeManager());
             container.RegisterType<IEventTypeRepo, EventTypeRepo>(new PerRequestLifetimeManager());
             container.RegisterType<IUserRepo, UserRepo>(new PerRequestLifetimeManager());
+            container.RegisterType<IUnitOfWork, UnitOfWork>(new PerRequestLifetimeManager());
+            container.RegisterType<IEventService, EventService>(new PerRequestLifetimeManager());
         }
     }
 }

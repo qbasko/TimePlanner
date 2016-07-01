@@ -8,13 +8,13 @@ using Repository.Models;
 
 namespace Repository.IRepo
 {
-    public interface ITimePlannerContext
+    public interface ITimePlannerContext : IDisposable
     {
         DbSet<Event> Events { get; set; }
         DbSet<EventType> EventTypes { get; set; }
         DbSet<Location> Locations { get; set; }
         DbSet<User> ApplicationUsers { get; set; }
-        Database Db { get;}
+        Database Db { get; }
         int SaveChanges();
         DbEntityEntry Entry(object entity);
     }
