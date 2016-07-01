@@ -200,7 +200,23 @@ namespace TimePlanner.Controllers
             }
 
             var user = _userRepo.GetUserById(User.Identity.GetUserId());
-            @event.Attendees.Add(user);
+
+            if (!@event.EventUsers.Any(eu => eu.EventId == id && eu.UserId == user.Id))
+            {
+                EventUser evUsr = new EventUser
+                {
+                    Event = @event,
+                    User = user,
+                    Id = Guid.NewGuid().ToString(),
+                    EventId = @event.Id,
+                    UserId = user.Id,
+                    CreationDate = DateTime.UtcNow
+                };
+
+                @event.EventUsers.Add(evUsr);
+                _eventRepository.SaveChanges();
+            }          
+         
             return View("Details", @event);
         }
 
@@ -216,9 +232,16 @@ namespace TimePlanner.Controllers
                 return HttpNotFound();
             }
             var user = _userRepo.GetUserById(User.Identity.GetUserId());
-            var participant = @event.Attendees.SingleOrDefault(a => a.Id == User.Identity.GetUserId());
-            if (participant != null)
-                @event.Attendees.Remove(participant);
+            var evUsr = @event.EventUsers.SingleOrDefault(e => e.UserId == User.Identity.GetUserId() && e.EventId == id);
+            if (evUsr != null)
+            {
+                @event.EventUsers.Remove(evUsr);
+                _eventRepository.Update(@event);
+                _eventRepository.SaveChanges();
+                user.EventUsers.Remove(evUsr);
+                _userRepo.Update(user);
+                _userRepo.SaveChanges();
+            }
             return View("Details", @event);
         }
     }

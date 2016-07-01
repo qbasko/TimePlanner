@@ -65,7 +65,7 @@ namespace Repository.Models
 
         public virtual User Author { get; set; }
 
-        public virtual ICollection<User> Attendees{ get; set; }
+        public virtual ICollection<EventUser> EventUsers{ get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [DataType(DataType.DateTime)]
@@ -73,7 +73,7 @@ namespace Repository.Models
 
         public Event()
         {
-            Attendees = new List<User>();
+            EventUsers = new HashSet<EventUser>();
         }
     }
 }

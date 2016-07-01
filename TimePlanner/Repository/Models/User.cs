@@ -21,7 +21,7 @@ namespace Repository.Models
 
         public int? Age { get; set; }
 
-        public virtual List<Event> Events{ get; set; }
+        public virtual ICollection<EventUser> EventUsers{ get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
@@ -29,6 +29,11 @@ namespace Repository.Models
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
             return userIdentity;
+        }
+
+        public User()
+        {
+            EventUsers = new HashSet<EventUser>();
         }
     }
 }

@@ -166,6 +166,24 @@
     <EmbeddedResource Include="Migrations\201606301405138_updatedEventAtendees.resx">
       <DependentUpon>201606301405138_updatedEventAtendees.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606301437362_modifiedUserModel.resx">
+      <DependentUpon>201606301437362_modifiedUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607011219445_EventUserRelation.resx">
+      <DependentUpon>201607011219445_EventUserRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607011247414_eventUserRelation2.resx">
+      <DependentUpon>201607011247414_eventUserRelation2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607011257332_eventUserRelation3.resx">
+      <DependentUpon>201607011257332_eventUserRelation3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607011258404_eventUserRelation31.resx">
+      <DependentUpon>201607011258404_eventUserRelation31.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607011407510_eventUserRelation32.resx">
+      <DependentUpon>201607011407510_eventUserRelation32.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Location.pl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Location.pl.Designer.cs</LastGenOutput>
@@ -229,9 +247,34 @@
     <Compile Include="Migrations\201606301405138_updatedEventAtendees.Designer.cs">
       <DependentUpon>201606301405138_updatedEventAtendees.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606301437362_modifiedUserModel.cs" />
+    <Compile Include="Migrations\201606301437362_modifiedUserModel.Designer.cs">
+      <DependentUpon>201606301437362_modifiedUserModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607011219445_EventUserRelation.cs" />
+    <Compile Include="Migrations\201607011219445_EventUserRelation.Designer.cs">
+      <DependentUpon>201607011219445_EventUserRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607011247414_eventUserRelation2.cs" />
+    <Compile Include="Migrations\201607011247414_eventUserRelation2.Designer.cs">
+      <DependentUpon>201607011247414_eventUserRelation2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607011257332_eventUserRelation3.cs" />
+    <Compile Include="Migrations\201607011257332_eventUserRelation3.Designer.cs">
+      <DependentUpon>201607011257332_eventUserRelation3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607011258404_eventUserRelation31.cs" />
+    <Compile Include="Migrations\201607011258404_eventUserRelation31.Designer.cs">
+      <DependentUpon>201607011258404_eventUserRelation31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607011407510_eventUserRelation32.cs" />
+    <Compile Include="Migrations\201607011407510_eventUserRelation32.Designer.cs">
+      <DependentUpon>201607011407510_eventUserRelation32.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventType.cs" />
+    <Compile Include="Models\EventUser.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\TimePlannerContext.cs" />
     <Compile Include="Models\User.cs" />

@@ -47,7 +47,14 @@ namespace Repository.Repo
 
         public void SaveChanges()
         {
-            _ctx.SaveChanges();
+            try
+            {
+                _ctx.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public void Add(Event @event)

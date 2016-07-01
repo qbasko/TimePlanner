@@ -109,10 +109,19 @@
 <div>
     <h4>Assigned attendees</h4>
 
-    @foreach (var item in Model.Attendees)
-    {
-        <tr>item.Email</tr>
-    }
+    <table class="table">
+        <tr>
+            <th>UserName</th>
+            <th>Email</th>
+        </tr>
+        @foreach (Repository.Models.EventUser evUsr in Model.EventUsers)
+        {
+            <tr>
+                <td>@Html.DisplayFor(_ => evUsr.User.Name)</td>
+                <td>@Html.DisplayFor(_ => evUsr.User.Email)</td>
+            </tr>
+        }
+    </table>
 
 </div>
 <p>

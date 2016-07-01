@@ -32,11 +32,30 @@ namespace Repository.Models
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingEntitySetNameConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            modelBuilder.Entity<Event>()
-                .HasRequired(e => e.Author)
-                .WithMany(u => u.Events)
-                .HasForeignKey(e => e.AuthorId)
-                .WillCascadeOnDelete(true);
+            //modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+                       
+            //modelBuilder.Entity<Event>().HasMany(e => e.EventUsers).WithOptional().WillCascadeOnDelete(false);
+            //modelBuilder.Entity<User>().HasMany(e => e.EventUsers).WithOptional().WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Event>().HasRequired(e=>e.Attendees).WithMany().WillCascadeOnDelete(false);
+            //modelBuilder.Entity<User>().HasRequired(e => e.Events).WithMany().WillCascadeOnDelete(false);
+
+
+
+
+            //modelBuilder.Entity<Event>()
+            //     .HasMany<User>(e => e.Attendees)
+            //     .WithMany(u => u.Events);
+
+            //modelBuilder.Entity<Event>()
+            //     .HasMany<User>(e => e.Attendees)
+            //     .WithMany(u => u.Events)
+            //     .Map(ea =>
+            //     {
+            //         ea.MapLeftKey("EventId");
+            //         ea.MapRightKey("UserId");
+            //         ea.ToTable("EventsUsers");
+            //     });                
         }
     }
 }
