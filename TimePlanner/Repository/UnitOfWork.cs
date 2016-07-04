@@ -9,15 +9,10 @@ namespace Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly IEventRepo _eventRepo;
-        private readonly IEventTypeRepo _eventTypeRepo;
-        private readonly ILocationRepo _locationRepo;
-        private readonly IUserRepo _userRepo;
-
-        public IEventRepo EventRepo => _eventRepo;
-        public IEventTypeRepo EventTypeRepo => _eventTypeRepo;
-        public ILocationRepo LocationRepo => _locationRepo;
-        public IUserRepo UserRepo => _userRepo;
+        public IEventRepo EventRepo { get; set; }
+        public IEventTypeRepo EventTypeRepo { get; set; }
+        public ILocationRepo LocationRepo { get; set; }
+        public IUserRepo UserRepo { get; set; }
 
         private readonly ITimePlannerContext _ctx;
 
