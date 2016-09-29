@@ -8,16 +8,16 @@ namespace Services
 {
     public abstract class BaseService
     {
-        protected readonly IUnitOfWork _unitOfWork;
+        protected readonly IUnitOfWork UnitOfWork;
 
-        public BaseService(IUnitOfWork unitOfWork)
+        protected BaseService(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+            UnitOfWork = unitOfWork;
         }
 
         void SaveChanges()
         {
-            _unitOfWork.SaveChanges();
+            UnitOfWork.SaveChanges();
         }
     }
 }

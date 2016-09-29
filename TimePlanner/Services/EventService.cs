@@ -13,9 +13,31 @@ namespace Services
         {
         }
 
+        public void Add(Event @event)
+        {
+            UnitOfWork.EventRepo.Add(@event);
+            UnitOfWork.SaveChanges();
+        }
+
+        public void Delete(string id)
+        {
+            UnitOfWork.EventRepo.Delete(id);
+            UnitOfWork.SaveChanges();
+        }
+
         public IEnumerable<Event> GetAllEvents()
         {
-            return _unitOfWork.EventRepo.GetEvents();
-        } 
+            return UnitOfWork.EventRepo.GetEvents();
+        }
+
+        public Event GetEventById(string id)
+        {
+            return UnitOfWork.EventRepo.GetEventById(id);
+        }
+
+        public void Update(Event @event)
+        {
+            UnitOfWork.EventRepo.Update(@event);
+        }
     }
 }
