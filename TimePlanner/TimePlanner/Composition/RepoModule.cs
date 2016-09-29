@@ -6,6 +6,7 @@ using Autofac;
 using Services;
 using Repository;
 using Repository.IRepo;
+using Repository.Models;
 
 namespace TimePlanner.Composition
 {
@@ -15,6 +16,7 @@ namespace TimePlanner.Composition
         {
             base.Load(builder);
             builder.RegisterAssemblyTypes(typeof(IDetermineRepoAssembly).Assembly).AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<TimePlannerContext>().As<ITimePlannerContext>();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().OnActivated(c =>
             {
                 c.Instance.EventRepo = c.Context.Resolve<IEventRepo>();

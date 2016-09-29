@@ -9,7 +9,7 @@ namespace Services
 {
     public class UserService: BaseService, IUserService
     {
-        public UserService(UnitOfWork unitOfWork) : base(unitOfWork) { }
+        public UserService(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
         public User GetUserById(string id)
         {

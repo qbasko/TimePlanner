@@ -16,7 +16,7 @@ namespace Services
         public void Add(Event @event)
         {
             UnitOfWork.EventRepo.Add(@event);
-            UnitOfWork.SaveChanges();
+            UnitOfWork.EventRepo.SaveChanges();
         }
 
         public void Delete(string id)
