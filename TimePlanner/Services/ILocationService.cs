@@ -10,5 +10,9 @@ namespace Services
    public interface ILocationService
     {
         IEnumerable<Location> GetLocations();
+        Location GetLocationById(string id);
+        void Add(Location location);
+        void Update(Location location);
+        void Delete(string id);
     }
 }

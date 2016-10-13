@@ -13,22 +13,25 @@ using Microsoft.AspNet.Identity;
 using Repository.IRepo;
 using Repository.Models;
 using Repository.Repo;
+using Services;
 
 namespace TimePlanner.Controllers
 {
+    [Authorize]
     public class LocationsController : Controller
     {
-        private readonly ILocationRepo _repository;
+        //private readonly ILocationRepo _repository;
+        private readonly ILocationService _locationService;
 
-        public LocationsController(ILocationRepo repository)
+        public LocationsController(ILocationService locationService)
         {
-            _repository = repository;
+            _locationService = locationService;
         }
 
         // GET: Locations
         public ActionResult Index()
         {
-            var locations = _repository.GetLocations();
+            var locations = _locationService.GetLocations();
             return View(locations);
         }
 
@@ -39,7 +42,7 @@ namespace TimePlanner.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = _repository.GetLocationById(id);
+            Location location = _locationService.GetLocationById(id);
             if (location == null)
             {
                 return HttpNotFound();
@@ -48,7 +51,6 @@ namespace TimePlanner.Controllers
         }
 
         // GET: Locations/Create
-        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -58,7 +60,6 @@ namespace TimePlanner.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Name,Description,District,City,Country,Latitude,Longtitude")] Location location)
         {
@@ -69,8 +70,7 @@ namespace TimePlanner.Controllers
                 location.AuthorId = User.Identity.GetUserId();
                 try
                 {
-                    _repository.Add(location);
-                    _repository.SaveChanges();
+                    _locationService.Add(location);
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
@@ -82,14 +82,13 @@ namespace TimePlanner.Controllers
         }
 
         // GET: Locations/Edit/5
-        [Authorize]
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = _repository.GetLocationById(id);
+            Location location = _locationService.GetLocationById(id);
             if (location == null)
             {
                 return HttpNotFound();
@@ -101,7 +100,6 @@ namespace TimePlanner.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,AuthorId,CreationDate,Name,Description,District,City,Country,Latitude,Longtitude")] Location location)
         {
@@ -109,8 +107,7 @@ namespace TimePlanner.Controllers
             {
                 try
                 {
-                    _repository.Update(location);
-                    _repository.SaveChanges();
+                    _locationService.Update(location);
                 }
                 catch (Exception ex)
                 {
@@ -123,14 +120,13 @@ namespace TimePlanner.Controllers
         }
 
         // GET: Locations/Delete/5
-        [Authorize]
         public ActionResult Delete(string id, bool? error)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = _repository.GetLocationById(id);
+            Location location = _locationService.GetLocationById(id);
             if (location == null)
             {
                 return HttpNotFound();
@@ -143,14 +139,12 @@ namespace TimePlanner.Controllers
 
         // POST: Locations/Delete/5
         [HttpPost, ActionName("Delete")]
-        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
             try
             {
-                _repository.Delete(id);
-                _repository.SaveChanges();
+                _locationService.Delete(id);
             }
             catch (Exception ex)
             {
@@ -162,7 +156,7 @@ namespace TimePlanner.Controllers
 
         public ActionResult Partial()
         {
-            var locations = _repository.GetLocations();
+            var locations = _locationService.GetLocations();
             return PartialView("Index", locations);
         }
     }

@@ -16,7 +16,7 @@ namespace Services
         public void Add(Event @event)
         {
             UnitOfWork.EventRepo.Add(@event);
-            UnitOfWork.EventRepo.SaveChanges();
+            UnitOfWork.SaveChanges();
         }
 
         public void Delete(string id)
@@ -38,6 +38,7 @@ namespace Services
         public void Update(Event @event)
         {
             UnitOfWork.EventRepo.Update(@event);
+            UnitOfWork.SaveChanges();
         }
     }
 }

@@ -13,6 +13,18 @@ namespace Services
         {
         }
 
+        public void Add(Location location)
+        {
+            UnitOfWork.LocationRepo.Add(location);
+            UnitOfWork.SaveChanges();
+        }
+
+        public void Delete(string id)
+        {
+            UnitOfWork.LocationRepo.Delete(id);
+            UnitOfWork.SaveChanges();
+        }
+
         public Location GetLocationById(string id)
         {
             return UnitOfWork.LocationRepo.GetLocationById(id);
@@ -21,6 +33,12 @@ namespace Services
         public IEnumerable<Location> GetLocations()
         {
             return UnitOfWork.LocationRepo.GetLocations();
+        }
+
+        public void Update(Location location)
+        {
+            UnitOfWork.LocationRepo.Update(location);
+            UnitOfWork.SaveChanges();
         }
     }
 }

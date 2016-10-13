@@ -17,14 +17,16 @@ namespace TimePlanner.Composition
             base.Load(builder);
             builder.RegisterAssemblyTypes(typeof(IDetermineRepoAssembly).Assembly).AsImplementedInterfaces().InstancePerRequest();
             builder.RegisterType<TimePlannerContext>().As<ITimePlannerContext>();
-            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().OnActivated(c =>
-            {
-                c.Instance.EventRepo = c.Context.Resolve<IEventRepo>();
-                c.Instance.EventTypeRepo = c.Context.Resolve<IEventTypeRepo>();
-                c.Instance.LocationRepo = c.Context.Resolve<ILocationRepo>();
-                c.Instance.UserRepo = c.Context.Resolve<IUserRepo>();
-            }
-            );
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
+
+            //builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().OnActivated(c =>
+            //{
+            //    c.Instance.EventRepo = c.Context.Resolve<IEventRepo>();
+            //    c.Instance.EventTypeRepo = c.Context.Resolve<IEventTypeRepo>();
+            //    c.Instance.LocationRepo = c.Context.Resolve<ILocationRepo>();
+            //    c.Instance.UserRepo = c.Context.Resolve<IUserRepo>();
+            //}
+            //);
         }
     }
 }
