@@ -5,3 +5,6 @@ packages/*
 **/[Bb]in/
 **/[Oo]bj/
 **/*.csproj.user
+**/node_modules/
+**/typings/
+**/wwwroot/scripts/*

@@ -1,8 +1,8 @@
-﻿@{
+﻿@*@{
     ViewData["Title"] = "Home Page";
-}
+}*@
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+@*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -106,4 +106,26 @@
             <li><a href="http://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
         </ul>
     </div>
-</div>
+</div>*@
+
+<html>
+<head>
+    <title>Angular 2 meets ASP.NET</title>
+    <script src="/scripts/angularframework/core-js/client/shim.min.js">
+    </script>
+    <script src="/scripts/angularframework/zone.js/dist/zone.js">
+    </script>
+    <script src="/scripts/angularframework/reflect-metadata/Reflect.js">
+    </script>
+    <script src="/scripts/angularframework/systemjs/dist/system.src.js">
+    </script>
+    <script src="/scripts/systemjs.config.js"></script>
+    <script>
+ System.import('app').catch(function(err){ console.error(err); });
+    </script>
+</head>
+<body>
+    <my-app>Loading...</my-app>
+</body>
+</html>
+</html>
